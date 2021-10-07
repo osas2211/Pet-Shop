@@ -191,6 +191,11 @@ contract petShop {
         require(IERC20Token(cUsdTokenAddress).balanceOf(address(this)) >= amount, "Insuffcient Contract Balance");
         require(IERC20Token(cUsdTokenAddress).transfer(petShopOwner, amount),"Withdrawal failed");
     }
+    
+    function changeAdoptionFee(uint256 newFee) public onlyOwner {
+        adoptionFEE = newFee.mul(10 ** 18);
+    }
+
 
     function getPetCount() public view returns (uint) {
         return (petCount);
