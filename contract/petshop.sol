@@ -44,6 +44,7 @@ contract petShop {
         string imageURL;
         uint age;
         string breed;
+        string attributes;
         string location;
         bool adopted;
         address adopter;
@@ -62,6 +63,7 @@ contract petShop {
         string memory _imageURL,
         uint _age,
         string memory _breed,
+        string memory _attributes,
         string memory _location
     ) onlyOwner() public {
         uint _id = petCount;
@@ -71,6 +73,7 @@ contract petShop {
         _pet.imageURL = _imageURL;
         _pet.age = _age;
         _pet.breed = _breed;
+        _pet.attributes = _attributes;
         _pet.location = _location;
         petCount++;
     }
@@ -82,6 +85,7 @@ contract petShop {
         uint,
         string memory,
         string memory,
+        string memory,
         bool,
         address
     ){
@@ -90,6 +94,7 @@ contract petShop {
             pets[_id].imageURL,
             pets[_id].age,
             pets[_id].breed,
+            pets[_id].attributes,
             pets[_id].location,
             pets[_id].adopted,
             pets[_id].adopter
